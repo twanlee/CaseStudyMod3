@@ -18,6 +18,7 @@ public class Constant {
     public static final String INSERT_PRODUCT = "call insert_product(?,?,?,?,?,?)";
     public static final String UPDATE_PRODUCT = "call insert_product(?,?,?,?,?,?,?)";
     public static final String DELETE_PRODUCT = "call delete_product(?)";
+    public static final String IMPORT_PRODUCT = "call edit_quantity_product(?,?)";
 
 
 

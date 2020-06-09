@@ -12,7 +12,7 @@
     <title>Product</title>
 </head>
 <body>
-<a href="/logout">Logout</a>
+<a href="/logout">Logout</a> <br> <br> <br>
 <a href="#">Add new product</a>
 <fieldset>
     <legend>Product Information</legend>
@@ -31,14 +31,14 @@
             <td>${product.getId()}</td>
             <td>${product.getName()}</td>
             <td>${product.getBrand()}</td>
-            <td>${product.getPrice().tofix(2)}</td>
+            <td>${product.getPrice()}</td>
             <td>${product.getQuantity()}</td>
             <td>${product.getDescription()}</td>
             <td><img src="${product.getImgUrl()}" alt="${product.getName()}"></td>
-            <td><a href="/products?action=import&id=${product.getId()}">Import Product</a></td>
-            <td><a href="/products?action=export&id=${product.getId()}">Export Product</a></td>
-            <td><a href="/products?action=update&id=${product.getId()}">Update Product</a></td>
-            <td><a href="/products?action=delete&id=${product.getId()}">Delete Product</a></td>
+            <td><a href="/products_command?action=import&id=${product.getId()}">Import Product</a></td>
+            <td><a href="/products_command?action=export&id=${product.getId()}">Export Product</a></td>
+            <td><a href="/products_command?action=update&id=${product.getId()}">Update Product</a></td>
+            <td><a href="/products_command?action=delete&id=${product.getId()}">Delete Product</a></td>
         </c:forEach>
     </table>
 </fieldset>

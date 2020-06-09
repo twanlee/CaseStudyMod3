@@ -12,4 +12,5 @@ public interface IProductDAO {
     void addProduct(Product product) throws SQLException;
     void updateProduct(Product product) throws SQLException;
     void deleteProduct(int id) throws SQLException;
+    void importProduct(int id, int quantity) throws SQLException;
 }

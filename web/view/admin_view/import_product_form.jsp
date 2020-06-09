@@ -6,11 +6,42 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Import</title>
 </head>
 <body>
-$END$
+<a href="/logout">Logout</a><br>
+<a href="/products">Back</a>
+<c:if test='${requestScope["message"] != null}'>
+    <h3 style="color: blue">${requestScope["message"]}</h3>
+</c:if>
+<fieldset>
+    <legend>Import</legend>
+    <form method="post">
+<%--        <input type="hidden" name="_id" value="${product.getId()}">--%>
+        <table border="1">
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Brand</th>
+                <th>Product Price</th>
+                <th>Enter Quantity</th>
+
+            </tr>
+            <tr>
+                <td>${product.getId()}</td>
+                <td>${product.getName()}</td>
+                <td>${product.getBrand()}</td>
+                <td>${product.getQuantity()}</td>
+                <td><input type="text" name="addValue"></td>
+
+            </tr>
+
+        </table>
+        <input type="submit">
+    </form>
+</fieldset>
 </body>
 </html>

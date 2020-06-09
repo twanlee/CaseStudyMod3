@@ -20,14 +20,15 @@
 <fieldset>
     <legend>Export</legend>
     <form method="post">
-        <input type="hidden" name="id" value="${product.getId()}">
+<%--        <input type="hidden" name="_id" value="${product.getId()}">--%>
         <table border="1">
             <tr>
                 <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Product Brand</th>
                 <th>Product Price</th>
-                <th>Add Quantity</th>
+                <th>Product Quantity</th>
+                <th>Enter Quantity</th>
 
             </tr>
             <tr>
@@ -35,7 +36,8 @@
                 <td>${product.getName()}</td>
                 <td>${product.getBrand()}</td>
                 <td>${product.getPrice()}</td>
-                <td><input type="text" name="addValue" value="Add quantity"></td>
+                <td>${product.getQuantity()}</td>
+                <td><input type="text" name="addValue"></td>
 
             </tr>
 

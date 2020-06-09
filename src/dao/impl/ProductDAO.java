@@ -107,4 +107,12 @@ public class ProductDAO implements IProductDAO {
         statement.setInt(1,id);
         statement.execute();
     }
+
+    @Override
+    public void importProduct(int id, int quantity) throws SQLException {
+        PreparedStatement statement = connection.getConnection().prepareStatement(Constant.IMPORT_PRODUCT);
+        statement.setInt(1,id);
+        statement.setInt(2,quantity);
+        statement.executeUpdate();
+    }
 }
