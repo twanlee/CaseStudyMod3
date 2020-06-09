@@ -1,6 +1,7 @@
 package controller;
 
 import dao.impl.UserDAO;
+import model.User;
 import utils.DBConnection;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
@@ -24,10 +27,16 @@ public class UserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        showUserForm(request,response);
+        try {
+            showUserForm(request,response);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void showUserForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void showUserForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        List<User> users = userDAO.selectAll();
+        request.setAttribute("users",users);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/user_form.jsp");
         dispatcher.forward(request,response);
     }
