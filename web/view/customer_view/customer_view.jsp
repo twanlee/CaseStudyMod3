@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>WELCOME CUSTOMER</h1>
+<a href="/logout">Logout</a>
 </body>
 </html>

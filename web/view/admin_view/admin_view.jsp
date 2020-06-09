@@ -13,6 +13,6 @@
 <body>
 <a href="/users">User Management</a><br> <br><br>
 <a href="/products">Product Management</a>
-
+<a href="/logout">Logout</a>
 </body>
 </html>

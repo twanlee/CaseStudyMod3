@@ -12,6 +12,7 @@
     <title>User Management</title>
 </head>
 <body>
+<a href="/logout">Logout</a>
 <fieldset>
     <legend>User information</legend>
     <table border="1">
