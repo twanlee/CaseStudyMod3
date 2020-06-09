@@ -10,6 +10,8 @@ public class Constant {
     public static final String FIND_BY_ID = "call find_user_by_id(?)";
     public static final String CONTENT_TYPE = "text/html;charset=UTF-8";
     public static final String END_CODING = "utf-8";
+    public static final String UPDATE_USER = "call update_user(?,?,?,?)";
+    public static final String DELETE_USER = "call delete_user(?)";
 
 
 }

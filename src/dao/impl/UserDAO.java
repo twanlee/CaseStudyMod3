@@ -73,4 +73,21 @@ public class UserDAO implements IUserDAO {
         statement.setString(3,user.getPermission());
         int resultSet = statement.executeUpdate();
     }
+
+    @Override
+    public void updateUser(User user) throws SQLException {
+        PreparedStatement statement = connection.getConnection().prepareStatement(Constant.UPDATE_USER);
+        statement.setInt(1,user.getId());
+        statement.setString(2,user.getUsername());
+        statement.setString(3,user.getPassword());
+        statement.setString(4,user.getPermission());
+        statement.executeUpdate();
+    }
+
+    @Override
+    public void deleteUser(int id) throws SQLException {
+        PreparedStatement statement = connection.getConnection().prepareStatement(Constant.DELETE_USER);
+        statement.setInt(1,id);
+        statement.executeUpdate();
+    }
 }

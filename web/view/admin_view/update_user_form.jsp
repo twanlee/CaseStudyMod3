@@ -12,6 +12,7 @@
     <title>Update User</title>
 </head>
 <body>
+<a href="/users">Back</a>
 <c:if test='${requestScope["message"] != null}'>
     <h3 style="color: blue">${requestScope["message"]}</h3>
 </c:if>
@@ -19,15 +20,20 @@
     <h3 style="color: red">${requestScope["error"]}</h3>
 </c:if>
 <fieldset>
-    <legend>Register</legend>
+    <legend>Update Information</legend>
     <form method="post">
         <input type="hidden" name="id" value="<c:out value="${user.id}"/>"/>
         <input type="text" name="username" value="<c:out value="${user.username}"/>"/><br/>
         PassWord <br/>
         <input type="password" name="password" value="<c:out value="${user.password}"/>"/><br/>
         Permission <br/>
-        <input type="password" name="password" value="<c:out value="${user.permission}"/>"/><br/>
-        <input type="submit">
+        <select name="permission">
+            <option value="Admin">Admin</option>
+            <option value="Staff">Staff</option>
+            <option value="Customer" selected>Customer</option>
+        </select><br>
+
+        <input type="submit"/>
     </form>
 
 </fieldset>

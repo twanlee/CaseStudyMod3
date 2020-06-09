@@ -28,7 +28,7 @@
                 <td>${user.getUsername()}</td>
                 <td>${user.getPassword()}</td>
                 <td>${user.getPermission()}</td>
-                <td><a href="/command?action=edit&id=${user.getId()}">Update User</a></td>
+                <td><a href="/command?action=update&id=${user.getId()}">Update User</a></td>
                 <td><a href="/command?action=delete&id=${user.getId()}">Delete User</a></td>
             </tr>
         </c:forEach>

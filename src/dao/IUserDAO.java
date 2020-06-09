@@ -10,4 +10,6 @@ public interface IUserDAO {
     User findByUsername( String username) throws SQLException;
     User findById( int id) throws SQLException;
     void insertUser(User user) throws SQLException;
+    void updateUser(User user) throws SQLException;
+    void deleteUser(int id) throws SQLException;
 }
