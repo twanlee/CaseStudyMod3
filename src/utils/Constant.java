@@ -12,6 +12,13 @@ public class Constant {
     public static final String END_CODING = "utf-8";
     public static final String UPDATE_USER = "call update_user(?,?,?,?)";
     public static final String DELETE_USER = "call delete_user(?)";
+    public static final String SELECT_ALL_PRODUCT = "call select_all_product()";
+    public static final String FIND_PRODUCT_BY_ID = "call find_product_by_id(?)";
+    public static final String FIND_PRODUCT_BY_NAME = "select * from users where country like ?;";
+    public static final String INSERT_PRODUCT = "call insert_product(?,?,?,?,?,?)";
+    public static final String UPDATE_PRODUCT = "call insert_product(?,?,?,?,?,?,?)";
+    public static final String DELETE_PRODUCT = "call delete_product(?)";
+
 
 
 }
