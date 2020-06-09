@@ -16,7 +16,7 @@ public class Constant {
     public static final String FIND_PRODUCT_BY_ID = "call find_product_by_id(?)";
     public static final String FIND_PRODUCT_BY_NAME = "select * from users where country like ?;";
     public static final String INSERT_PRODUCT = "call insert_product(?,?,?,?,?,?)";
-    public static final String UPDATE_PRODUCT = "call insert_product(?,?,?,?,?,?,?)";
+    public static final String UPDATE_PRODUCT = "call update_product(?,?,?,?,?,?,?)";
     public static final String DELETE_PRODUCT = "call delete_product(?)";
     public static final String IMPORT_PRODUCT = "call edit_quantity_product(?,?)";
 

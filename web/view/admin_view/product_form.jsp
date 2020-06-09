@@ -13,7 +13,8 @@
 </head>
 <body>
 <a href="/logout">Logout</a> <br> <br> <br>
-<a href="#">Add new product</a>
+<a href="products_command?action=addProduct">Add new product</a>
+<br> <br>
 <fieldset>
     <legend>Product Information</legend>
     <table border="1">
@@ -28,17 +29,19 @@
             <th colspan="4">Action</th>
         </tr>
         <c:forEach items="${products}" var="product">
-            <td>${product.getId()}</td>
-            <td>${product.getName()}</td>
-            <td>${product.getBrand()}</td>
-            <td>${product.getPrice()}</td>
-            <td>${product.getQuantity()}</td>
-            <td>${product.getDescription()}</td>
-            <td><img src="${product.getImgUrl()}" alt="${product.getName()}"></td>
-            <td><a href="/products_command?action=import&id=${product.getId()}">Import Product</a></td>
-            <td><a href="/products_command?action=export&id=${product.getId()}">Export Product</a></td>
-            <td><a href="/products_command?action=update&id=${product.getId()}">Update Product</a></td>
-            <td><a href="/products_command?action=delete&id=${product.getId()}">Delete Product</a></td>
+            <tr>
+                <td>${product.getId()}</td>
+                <td>${product.getName()}</td>
+                <td>${product.getBrand()}</td>
+                <td>${product.getPrice()}</td>
+                <td>${product.getQuantity()}</td>
+                <td>${product.getDescription()}</td>
+                <td><img src="${product.getImgUrl()}" alt="${product.getName()}"></td>
+                <td><a href="/products_command?action=import&id=${product.getId()}">Import Product</a></td>
+                <td><a href="/products_command?action=export&id=${product.getId()}">Export Product</a></td>
+                <td><a href="/products_command?action=update&id=${product.getId()}">Update Product</a></td>
+                <td><a href="/products_command?action=delete&id=${product.getId()}">Delete Product</a></td>
+            </tr>
         </c:forEach>
     </table>
 </fieldset>

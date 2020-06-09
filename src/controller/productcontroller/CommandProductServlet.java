@@ -29,9 +29,13 @@ public class CommandProductServlet extends HttpServlet {
                     importProduct(request, response);
                     break;
                 case "export":
-                    exportProduct(request,response);
+                    exportProduct(request, response);
+                    break;
+                case "addProduct":
+                    addProduct(request, response);
                     break;
                 case "update":
+                    updateProduct(request, response);
                     break;
                 case "delete":
                     break;
@@ -41,9 +45,6 @@ public class CommandProductServlet extends HttpServlet {
         }
         response.setContentType(Constant.CONTENT_TYPE);
     }
-
-
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -56,7 +57,11 @@ public class CommandProductServlet extends HttpServlet {
                 case "export":
                     showExportForm(request, response);
                     break;
+                case "addProduct":
+                    showAddForm(request, response);
+                    break;
                 case "update":
+                    showUpdateForm(request, response);
                     break;
                 case "delete":
                     break;
@@ -65,43 +70,83 @@ public class CommandProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String brand = request.getParameter("brand");
+        Double price = Double.valueOf(request.getParameter("price"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String des = request.getParameter("description");
+        String img = request.getParameter("image");
+        Product product = new Product(id,name, brand, price, quantity, des, img);
+        productDAO.updateProduct(product);
+        request.setAttribute("message", "Update product successfully!");
+        Product _product = productDAO.findById(id);
+        showUpdateForm(request,response);
+    }
+
+    private void showUpdateForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productDAO.findById(id);
+        request.setAttribute("product", product);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/update_product_form.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void addProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String name = request.getParameter("name");
+        String brand = request.getParameter("brand");
+        Double price = Double.valueOf(request.getParameter("price"));
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String des = request.getParameter("description");
+        String img = request.getParameter("image");
+        Product product = new Product(name, brand, price, quantity, des, img);
+        productDAO.addProduct(product);
+        request.setAttribute("message", "Add new product successfully!");
+        showAddForm(request,response);
+    }
+
+    private void showAddForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/add_product_form.jsp");
+        dispatcher.forward(request, response);
+    }
+
     private void exportProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         int quantity = Integer.parseInt(request.getParameter("addValue"));
         Product product = productDAO.findById(id);
-        int sumQuantity = product.getQuantity()-quantity;
-        if(sumQuantity<0){
-            request.setAttribute("message","Out of stock!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/import_product_form.jsp");
-            dispatcher.forward(request, response);
-        }else {
+        int sumQuantity = product.getQuantity() - quantity;
+        if (sumQuantity < 0) {
+            request.setAttribute("message", "Out of stock!");
+            showExportForm(request,response);
+        } else {
             productDAO.importProduct(id, sumQuantity);
-            Product afterProduct = productDAO.findById(id);
-            request.setAttribute("product",afterProduct);
             request.setAttribute("message", "Export completed!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/import_product_form.jsp");
-            dispatcher.forward(request, response);
+            showExportForm(request,response);
         }
     }
-    private void showExportForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {int id = Integer.parseInt(request.getParameter("id"));
+
+    private void showExportForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         Product product = productDAO.findById(id);
         request.setAttribute("product", product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/export_product_form.jsp");
         dispatcher.forward(request, response);
     }
+
     private void importProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         int quantity = Integer.parseInt(request.getParameter("addValue"));
         Product product = productDAO.findById(id);
-        int sumQuantity = product.getQuantity()+quantity;
-        request.setAttribute("product",product);
-        productDAO.importProduct(id,sumQuantity);
+        int sumQuantity = product.getQuantity() + quantity;
+        request.setAttribute("product", product);
+        productDAO.importProduct(id, sumQuantity);
         Product afterProduct = productDAO.findById(id);
-        request.setAttribute("product",afterProduct);
-        request.setAttribute("message","Import completed!");
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/import_product_form.jsp");
-        dispatcher.forward(request, response);
+        request.setAttribute("message", "Import completed!");
+        showImportForm(request,response);
     }
+
     private void showImportForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productDAO.findById(id);
