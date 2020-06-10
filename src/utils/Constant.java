@@ -19,6 +19,9 @@ public class Constant {
     public static final String UPDATE_PRODUCT = "call update_product(?,?,?,?,?,?,?)";
     public static final String DELETE_PRODUCT = "call delete_product(?)";
     public static final String IMPORT_PRODUCT = "call edit_quantity_product(?,?)";
+    public static final String ADD_TO_CART = "call add_to_cart(?,?,?)";
+    public static final String DELETE_PRODUCT_CART = "call delete_cart(?)";
+    public static final String UPDATE_QUANTITY_CART = "call update_quantity_cart(?,?)";
 
 
 
