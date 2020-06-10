@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "CommandProductServlet", urlPatterns = "/products_command")
 public class CommandProductServlet extends HttpServlet {
@@ -37,7 +39,10 @@ public class CommandProductServlet extends HttpServlet {
                 case "update":
                     updateProduct(request, response);
                     break;
-                case "delete":
+                case "search":
+                    break;
+                default:
+                    showProductForm(request,response);
                     break;
             }
         } catch (SQLException e) {
@@ -64,11 +69,28 @@ public class CommandProductServlet extends HttpServlet {
                     showUpdateForm(request, response);
                     break;
                 case "delete":
+                    deleteProduct(request,response);
+                    break;
+                case "search":
+                    showSearchForm(request,response);
+                    break;
+                default:
+                    showProductForm(request,response);
                     break;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showSearchForm(HttpServletRequest request, HttpServletResponse response) {
+
+    }
+
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        productDAO.deleteProduct(id);
+        showProductForm(request,response);
     }
 
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
@@ -153,5 +175,12 @@ public class CommandProductServlet extends HttpServlet {
         request.setAttribute("product", product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/import_product_form.jsp");
         dispatcher.forward(request, response);
+    }
+    private void showProductForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        List<Product> products = new ArrayList<>();
+        products = productDAO.selectAll();
+        request.setAttribute("products",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/product_form.jsp");
+        dispatcher.forward(request,response);
     }
 }

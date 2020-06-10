@@ -15,6 +15,8 @@
 <a href="/logout">Logout</a> <br> <br> <br>
 <a href="products_command?action=addProduct">Add new product</a>
 <br> <br>
+<a href="products_command?action=search">Search</a>
+<br> <br>
 <fieldset>
     <legend>Product Information</legend>
     <table border="1">
@@ -36,7 +38,7 @@
                 <td>${product.getPrice()}</td>
                 <td>${product.getQuantity()}</td>
                 <td>${product.getDescription()}</td>
-                <td><img src="${product.getImgUrl()}" alt="${product.getName()}"></td>
+                <td><img src="${product.getImgUrl()}" alt="${product.getName()}" width="250px" height="270px"></td>
                 <td><a href="/products_command?action=import&id=${product.getId()}">Import Product</a></td>
                 <td><a href="/products_command?action=export&id=${product.getId()}">Export Product</a></td>
                 <td><a href="/products_command?action=update&id=${product.getId()}">Update Product</a></td>
