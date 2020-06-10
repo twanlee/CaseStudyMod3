@@ -5,7 +5,6 @@ import model.Product;
 import utils.Constant;
 import utils.DBConnection;
 
-import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -81,7 +80,7 @@ public class ProductDAO implements IProductDAO {
         statement.setString(1,product.getName());
         statement.setString(2,product.getBrand());
         statement.setDouble(3,product.getPrice());
-        statement.setInt(4,product.getQuantity());
+        statement.setInt(4,product.getStock());
         statement.setString(5,product.getDescription());
         statement.setString(6,product.getImgUrl());
         statement.executeUpdate();
@@ -94,7 +93,7 @@ public class ProductDAO implements IProductDAO {
         statement.setString(1,product.getName());
         statement.setString(2,product.getBrand());
         statement.setDouble(3,product.getPrice());
-        statement.setInt(4,product.getQuantity());
+        statement.setInt(4,product.getStock());
         statement.setString(5,product.getDescription());
         statement.setString(6,product.getImgUrl());
         statement.setInt(7,product.getId());

@@ -27,8 +27,8 @@
         <input type="text" name="brand" value="${product.getBrand()}">
         <p>Product Price</p><br>
         <input type="text" name="price" value="${product.getPrice()}">
-        <p>Product Quantity</p><br>
-        <input type="text" name="quantity" value="${product.getQuantity()}">
+        <p>Product Stock</p><br>
+        <input type="text" name="quantity" value="${product.getStock()}">
         <p>Product Description</p><br>
         <input type="text" name="description" value="${product.getDescription()}">
         <p>Product IMG URL</p><br>

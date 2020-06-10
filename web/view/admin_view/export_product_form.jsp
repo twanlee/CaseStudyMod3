@@ -27,7 +27,7 @@
                 <th>Product Name</th>
                 <th>Product Brand</th>
                 <th>Product Price</th>
-                <th>Product Quantity</th>
+                <th>Product Stock</th>
                 <th>Enter Quantity</th>
 
             </tr>
@@ -36,7 +36,7 @@
                 <td>${product.getName()}</td>
                 <td>${product.getBrand()}</td>
                 <td>${product.getPrice()}</td>
-                <td>${product.getQuantity()}</td>
+                <td>${product.getStock()}</td>
                 <td><input type="text" name="addValue"></td>
 
             </tr>

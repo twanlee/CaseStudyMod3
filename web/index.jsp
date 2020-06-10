@@ -14,9 +14,10 @@
   <h1 style="color:red; text-align: center">WELCOME</h1>
   <a href="/login">Login
   </a>
-  <br>
-  <br>
-  <br>
+  <br><br><br>
   <a href="/register">Register</a>
+  <br><br>
+
+
   </body>
 </html>

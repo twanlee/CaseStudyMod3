@@ -12,7 +12,7 @@
     <title>Update User</title>
 </head>
 <body>
-<a href="/users">Back</a>
+<a href="/products">Back</a>
 <a href="/logout">Logout</a>
 <c:if test='${requestScope["message"] != null}'>
     <h3 style="color: blue">${requestScope["message"]}</h3>

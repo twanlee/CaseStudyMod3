@@ -25,7 +25,7 @@
             <th>Product Name</th>
             <th>Product Brand</th>
             <th>Product Price</th>
-            <th>Product Quantity</th>
+            <th>Product Stock</th>
             <th>Product Description</th>
             <th>Product ImgUrl</th>
             <th colspan="4">Action</th>
@@ -36,7 +36,7 @@
                 <td>${product.getName()}</td>
                 <td>${product.getBrand()}</td>
                 <td>${product.getPrice()}</td>
-                <td>${product.getQuantity()}</td>
+                <td>${product.getStock()}</td>
                 <td>${product.getDescription()}</td>
                 <td><img src="${product.getImgUrl()}" alt="${product.getName()}" width="250px" height="270px"></td>
                 <td><a href="/products_command?action=import&id=${product.getId()}">Import Product</a></td>

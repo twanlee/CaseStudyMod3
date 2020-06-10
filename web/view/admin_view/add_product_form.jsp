@@ -26,7 +26,7 @@
         <input type="text" name="brand">
     <p>Product Price</p><br>
         <input type="text" name="price">
-    <p>Product Quantity</p><br>
+    <p>Product Stock</p><br>
         <input type="text" name="quantity">
     <p>Product Description</p><br>
         <input type="text" name="description">

@@ -12,6 +12,9 @@
 </head>
 <body>
 <h1>Hello Staff</h1>
-<a href="/logout">Logout</a>
+<a href="/logout">Logout</a><br>
+<br>
+<br>
+<a href="/products">Product Management</a><br> <br><br>
 </body>
 </html>

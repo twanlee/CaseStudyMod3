@@ -40,6 +40,7 @@ public class CommandProductServlet extends HttpServlet {
                     updateProduct(request, response);
                     break;
                 case "search":
+                    searchProduct(request,response);
                     break;
                 default:
                     showProductForm(request,response);
@@ -50,6 +51,8 @@ public class CommandProductServlet extends HttpServlet {
         }
         response.setContentType(Constant.CONTENT_TYPE);
     }
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -82,9 +85,22 @@ public class CommandProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String name = request.getParameter("name");
+        List<Product> products = new ArrayList<>();
+        products = productDAO.findByName(name);
+        if(products.size()!=0){
+            request.setAttribute("products",products);
+            showSearchForm(request,response);
+        }else {
+            request.setAttribute("message","Not found!");
+            showSearchForm(request,response);
+        }
+    }
 
-    private void showSearchForm(HttpServletRequest request, HttpServletResponse response) {
-
+    private void showSearchForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/search_product_form.jsp");
+        dispatcher.forward(request,response);
     }
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -138,7 +154,7 @@ public class CommandProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         int quantity = Integer.parseInt(request.getParameter("addValue"));
         Product product = productDAO.findById(id);
-        int sumQuantity = product.getQuantity() - quantity;
+        int sumQuantity = product.getStock() - quantity;
         if (sumQuantity < 0) {
             request.setAttribute("message", "Out of stock!");
             showExportForm(request,response);
@@ -161,7 +177,7 @@ public class CommandProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         int quantity = Integer.parseInt(request.getParameter("addValue"));
         Product product = productDAO.findById(id);
-        int sumQuantity = product.getQuantity() + quantity;
+        int sumQuantity = product.getStock() + quantity;
         request.setAttribute("product", product);
         productDAO.importProduct(id, sumQuantity);
         Product afterProduct = productDAO.findById(id);
