@@ -9,13 +9,25 @@
 <html>
 <head>
     <title>Admin Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .option{
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            transform: translate(-40%, -40%);
+        }
+        body{
+            background-color: burlywood;
+        }
+    </style>
 </head>
 <body>
-<a href="/users">User Management</a><br> <br><br>
-<a href="/products">Product Management</a><br> <br><br>
-<a href="/orders">Order Management</a><br> <br><br>
-<a href="/carts">Buy Product</a><br> <br><br>
-<a href="/logout">Logout</a>
-
+<div class="option">
+    <a href="/users" class="btn btn-primary btn-lg">User Management</a>
+    <a href="/products" class="btn btn-primary btn-lg">Product Management</a>
+    <a href="/orders" class="btn btn-primary btn-lg">Order Management</a>
+    <a href="/carts" class="btn btn-primary btn-lg">Buy Product</a>
+</div>
 </body>
 </html>

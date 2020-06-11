@@ -116,20 +116,12 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/index">
-                        <i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
+                        <i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://cdn.dribbble.com/users/2363127/screenshots/6483598/dribble.png"><i class="fas fa-list-alt"></i> Giới thiệu</a>
                 </li>
-                <li class="nav-item">
-                    <a href="${pageContext.request.contextPath}/TestProduct/creatP.jsp" class="nav-link"><i class="fas fa-plus"></i>Thêm Mới Sản Phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/TestProduct/editP.jsp"><i class="fa fa-wrench"></i> Sửa Thông Tin Sản Phẩm</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/TestProduct/deleteP.jsp"><i class="fas fa-times"></i> Xóa Thông Tin Sản Phẩm</a>
-                </li>
+
             </ul>
             <ul class="navbar navbar-nav navbar-right">
                 <li class="nav-item">

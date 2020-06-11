@@ -11,8 +11,7 @@
 <head>
     <title>Update User</title>
 </head>
-<body>
-<a href="/products">Back</a>
+<body style="background-color: burlywood">
 <a href="/logout">Logout</a>
 <c:if test='${requestScope["message"] != null}'>
     <h3 style="color: blue">${requestScope["message"]}</h3>
@@ -25,7 +24,7 @@
     <form method="post">
         <input type="hidden" name="id" value="<c:out value="${user.id}"/>"/>
         <input type="text" name="username" value="<c:out value="${user.username}"/>"/><br/>
-        PassWord <br/>
+        Password <br/>
         <input type="password" name="password" value="<c:out value="${user.password}"/>"/><br/>
         Permission <br/>
         <select name="permission">

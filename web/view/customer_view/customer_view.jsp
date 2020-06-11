@@ -118,8 +118,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index">
-                        <i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/carts">
+                        <i class="fas fa-home"></i>Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://cdn.dribbble.com/users/2363127/screenshots/6483598/dribble.png"><i

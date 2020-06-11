@@ -11,7 +11,7 @@
 <head>
     <title>Update</title>
 </head>
-<body>
+<body style="background-color: burlywood">
 <a href="/logout">Logout</a> <br>
 <br> <br>
 <c:if test='${requestScope["message"] != null}'>
