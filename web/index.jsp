@@ -102,10 +102,11 @@
 <div class="container" style="height: auto">
     <header class="row">
         <div class="col-sm-8 shopping-mall">
-            <h1>Online shopping mall</h1>
-            <h5>The center point of the professional programming</h5>
+<%--            <h1>Online shopping mall</h1>--%>
+<%--            <h5>The center point of the professional programming</h5>--%>
+            <img src="http://r52.cooltext.com/rendered/cooltext-357208209975326.gif">
         </div>
-        <img class="col-sm-4" src="https://demo.codegym.vn/web/15/layout-bootstrap/images/header-object.png" alt="Logo"/>
+        <img class="col-sm-4" src="http://r74.cooltext.com/rendered/cooltext-357208357844611.gif" alt="Logo"/>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,11 +115,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/product">
+                    <a class="nav-link" href="/index">
                         <i class="fas fa-home"></i> Trang chủ<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-list-alt"></i> Giới thiệu</a>
+                    <a class="nav-link" href="https://cdn.dribbble.com/users/2363127/screenshots/6483598/dribble.png"><i class="fas fa-list-alt"></i> Giới thiệu</a>
                 </li>
                 <li class="nav-item">
                     <a href="${pageContext.request.contextPath}/TestProduct/creatP.jsp" class="nav-link"><i class="fas fa-plus"></i>Thêm Mới Sản Phẩm</a>
@@ -141,13 +142,10 @@
         </div>
     </nav>
     <div align="center">
-        <h1 style="color:red; text-align: center">WELCOME</h1>
-        </a>
-        <br><br><br>
-        <br><br>
+        <h1 style="color:red; text-align: center"><img src="http://r70.cooltext.com/rendered/cooltext-357207645448359.gif"></h1>
         <fieldset>
             <legend>Product Information</legend>
-            <table border="1">
+            <table border="1" class="table-hover thead-dark">
                 <tr>
                     <th>Product ID</th>
                     <th>Product Name</th>

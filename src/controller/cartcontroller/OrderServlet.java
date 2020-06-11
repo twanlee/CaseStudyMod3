@@ -30,7 +30,13 @@ public class OrderServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        double total = 0;
+        for (Order order: orders){
+            total+=order.getAmount();
+        }
         request.setAttribute("orders", orders);
+        request.setAttribute("total", total);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/admin_view/order_management.jsp");
         dispatcher.forward(request,response);
     }

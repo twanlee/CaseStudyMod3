@@ -17,8 +17,8 @@ public class CartDAO implements ICartDAO {
     @Override
     public void addToCart(int user_id,int product_id, int quantity) throws SQLException {
         PreparedStatement statement = connection.getConnection().prepareStatement(Constant.ADD_TO_CART);
-        statement.setInt(1,product_id);
-        statement.setInt(2,user_id);
+        statement.setInt(1,user_id);
+        statement.setInt(2,product_id);
         statement.setInt(3,quantity);
         statement.executeUpdate();
     }
@@ -73,7 +73,7 @@ public class CartDAO implements ICartDAO {
     @Override
     public List<Order> showAllOrder() throws SQLException {
         List<Order> orders = new ArrayList<>();
-        PreparedStatement statement = connection.getConnection().prepareStatement(Constant.SHOW_ITEM_BY_USER_ID);
+        PreparedStatement statement = connection.getConnection().prepareStatement(Constant.SHOW_ALL_ORDER);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()){
             int item_id = resultSet.getInt(1);

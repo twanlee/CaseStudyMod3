@@ -14,7 +14,6 @@
 <body>
 <a href="/logout">Logout</a>
 <br>
-<a href="/orders">Back</a>
 <br>
 <fieldset>
     <legend>Your Orders</legend>
@@ -31,8 +30,7 @@
             <th>Delete</th>
         </tr>
         <c:forEach items="${orders}" var="order">
-            <form method="post" action="/carts?action=update&user_id=${user_id}&prId=${order.getProductId()}">
-                <tr>
+                    <tr>
                     <td>${order.getItem_id()}</td>
                     <td>${order.getProduct_name()}</td>
                     <td>${order.getUserName()}</td>
@@ -49,6 +47,7 @@
             </form>
         </c:forEach>
     </table>
+    <div><h3 style="text-align: center; color: red; tex">Revenue: ${total}</h3>
 </fieldset>
 </body>
 </html>
