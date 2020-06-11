@@ -20,8 +20,11 @@ public class Constant {
     public static final String DELETE_PRODUCT = "call delete_product(?)";
     public static final String IMPORT_PRODUCT = "call edit_quantity_product(?,?)";
     public static final String ADD_TO_CART = "call add_to_items(?,?,?)";
-    public static final String DELETE_PRODUCT_CART = "call delete_to_cart(?,?,?)";
+    public static final String DELETE_PRODUCT_CART = "call delete_to_cart(?,?)";
     public static final String UPDATE_QUANTITY_CART = "call update_to_cart(?,?,?)";
+    public static final String CHECK_ITEM = "call check_item(?,?)";
+    public static final String SHOW_ITEM_BY_USER_ID = "call show_item_by_id(?)";
+    public static final String SHOW_ALL_ORDER = "select i.item_id,u.user_name,p.product_id,p.product_name,i.quantity,p.product_price,i.order_date from users u join items i on u.user_id = i.user_id join products p on p.product_id=i.product_id;";
 
 
 

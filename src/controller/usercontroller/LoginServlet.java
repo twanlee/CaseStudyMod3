@@ -42,42 +42,52 @@ public class LoginServlet extends HttpServlet {
 
     private void checkLogin(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         HttpSession session = request.getSession();
+        Object check = session.getAttribute("IS_LOGGED");
+
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         User user = userDAO.findByUsername(username);
-        if (user.getPassword().equals(password) && user.getPermission().equals(Constant.ADMIN)) {
+        if (user != null) {
+            if (user.getPassword().equals(password) && user.getPermission().equals(Constant.ADMIN)) {
 
-            session.setAttribute("IS_LOGGED", true);
-            session.setAttribute("role", user.getPermission());
-            session.setAttribute("user_id", user.getId());
-            session.setAttribute("user_name", user.getUsername());
+                session.setAttribute("IS_LOGGED", true);
+                session.setAttribute("role", user.getPermission());
+                session.setAttribute("user_id", user.getId());
+                session.setAttribute("user_name", user.getUsername());
 
-            response.sendRedirect("/admin_home");
+                response.sendRedirect("/admin_home");
 
-        } else if (user.getPassword().equals(password) && user.getPermission().equals(Constant.STAFF)) {
-            session.setAttribute("IS_LOGGED", true);
-            session.setAttribute("role", user.getPermission());
-            session.setAttribute("IS_LOGGED", true);
-            session.setAttribute("role", user.getPermission());
-            session.setAttribute("user_id", user.getId());
-            session.setAttribute("user_name", user.getUsername());
+            } else if (user.getPassword().equals(password) && user.getPermission().equals(Constant.STAFF)) {
+                session.setAttribute("IS_LOGGED", true);
+                session.setAttribute("role", user.getPermission());
+                session.setAttribute("IS_LOGGED", true);
+                session.setAttribute("role", user.getPermission());
+                session.setAttribute("user_id", user.getId());
+                session.setAttribute("user_name", user.getUsername());
 
-            response.sendRedirect("/staff_home");
-        } else if (user.getPassword().equals(password) && user.getPermission().equals(Constant.CUSTOMER)) {
+                response.sendRedirect("/staff_home");
+            } else if (user.getPassword().equals(password) && user.getPermission().equals(Constant.CUSTOMER)) {
 //                RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer_view/customer_view.jsp");
 //                dispatcher.forward(request,response);
-            session.setAttribute("IS_LOGGED", true);
-            session.setAttribute("role", user.getPermission());
-            session.setAttribute("user_id", user.getId());
-            session.setAttribute("user_name", user.getUsername());
+                session.setAttribute("IS_LOGGED", true);
+                session.setAttribute("role", user.getPermission());
+                session.setAttribute("user_id", user.getId());
+                session.setAttribute("user_name", user.getUsername());
 
-            response.sendRedirect("/carts");
+                response.sendRedirect("/carts");
+            } else {
+                request.setAttribute("error", "Invalid username or password!");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer_view/login_form.jsp");
+                dispatcher.forward(request, response);
+            }
+
         } else {
             request.setAttribute("error", "Invalid username or password!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer_view/login_form.jsp");
             dispatcher.forward(request, response);
         }
+
     }
 
 }

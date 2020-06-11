@@ -16,5 +16,6 @@
 <br>
 <br>
 <a href="/products">Product Management</a><br> <br><br>
+<a href="/carts">Buy Product</a><br> <br><br>
 </body>
 </html>

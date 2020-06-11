@@ -19,7 +19,7 @@
     <h3 style="color: blue">${requestScope["message"]}</h3>
 </c:if>
 
-<a href="/carts?action=show&userId=${requestScope['user_id']}">Show your cart</a>
+<a href="/carts?action=show&userId=${user_id}">Show your cart</a>
 <fieldset>
     <legend>Product Information</legend>
     <table border="1">
@@ -42,7 +42,7 @@
                 <td>${product.getStock()}</td>
                 <td>${product.getDescription()}</td>
                 <td><img src="${product.getImgUrl()}" alt="${product.getName()}" width="250px" height="270px"></td>
-                <td><a href="/carts?action=add&product_id=${product.getId()}&userId=${requestScope['user_id']}">Add to cart</a></td>
+                <td><a href="/carts?action=add&product_id=${product.getId()}">Add to cart</a></td>
             </tr>
         </c:forEach>
     </table>
