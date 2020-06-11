@@ -13,7 +13,7 @@
 </head>
 <body>
 <a href="/logout">Logout</a> <br> <br> <br>
-<a href="/users">Back</a> <br> <br>
+<a href="/products">Back</a> <br> <br>
 <c:if test='${requestScope["message"] != null}'>
     <h3 style="color: blue">${requestScope["message"]}</h3>
 </c:if>
