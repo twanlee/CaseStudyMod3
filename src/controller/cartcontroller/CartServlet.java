@@ -91,10 +91,14 @@ public class CartServlet extends HttpServlet {
     }
 
     private void showCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
+        HttpSession session = request.getSession();
         int userId = Integer.parseInt(request.getParameter("userId"));
         List<Order> orders = new ArrayList<>();
         orders = cartDAO.showItemByUserId(userId);
         request.setAttribute("orders", orders);
+        String username = session.getAttribute("user_name").toString();
+        request.setAttribute("username",username);
         request.setAttribute("user_id", userId);
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/customer_view/show_cart.jsp");
         dispatcher.forward(request,response);

@@ -108,9 +108,9 @@
         <div class="col-sm-8 shopping-mall">
             <%--            <h1>Online shopping mall</h1>--%>
             <%--            <h5>The center point of the professional programming</h5>--%>
-            <img src="http://r52.cooltext.com/rendered/cooltext-357208209975326.gif">
+            <img src="http://r69.cooltext.com/rendered/cooltext-357128915048232.gif">
         </div>
-        <img class="col-sm-4" src="http://r74.cooltext.com/rendered/cooltext-357208357844611.gif" alt="Logo"/>
+        <img class="col-sm-4" src="http://r70.cooltext.com/rendered/cooltext-357129078671985.gif" alt="Logo"/>
     </header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -137,7 +137,7 @@
         </div>
     </nav>
     <div align="center">
-        <h1><img src="http://r70.cooltext.com/rendered/cooltext-357207645448359.gif"></h1>
+        <h1><img src="http://r69.cooltext.com/rendered/cooltext-357128807107202.gif"></h1>
 
     </div>
     <fieldset>
